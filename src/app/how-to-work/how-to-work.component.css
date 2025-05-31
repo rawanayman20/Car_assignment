@@ -1,0 +1,45 @@
+.how-it-work-section {
+  background-color: #ffffff;
+}
+
+.badge-button {
+  background-color: #e8f0fe;
+  font-weight: 600;
+  font-size: 0.75rem;
+  border-radius: 8px;
+  padding: 4px 12px;
+  cursor: default;
+}
+
+.step-card {
+  background-color: #f8faff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: 0.3s ease-in-out;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background-color: #e8f0fe;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.logo-row {
+  margin-top: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+body {
+  margin: 0;
+}
+
+

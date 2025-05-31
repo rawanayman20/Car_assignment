@@ -1,0 +1,44 @@
+<!-- Full page wrapper -->
+<div class="container-fluid p-0">
+  <div class="d-flex flex-column flex-md-row vh-100">
+    <!-- Left image column with large car image -->
+    <div class="col-md-6 d-flex align-items-center justify-content-center p-0 bg-white position-relative overflow-hidden">
+      <img src="assets/image 12.png" 
+           class="img-fluid"
+           style="width: 110%; max-width: none; object-fit: contain;"
+           alt="Car Image">
+    </div>
+
+    <!-- Right content column -->
+    <div class="col-md-6 d-flex align-items-center p-5">
+      <div class="w-100">
+        <button class="btn btn-sm mb-3 px-4 py-2 fw-semibold" style="background-color: #e9f0ff; color: #246bfd; border-radius: 8px;">
+          WHY CHOOSE US
+        </button>
+        <h1 class="fw-bold mb-4" style="font-size: 2.5rem;">
+          We offer the best experience<br>with our rental deals
+        </h1>
+
+        <ul class="list-unstyled fs-5 text-secondary">
+          <li class="mb-2"><i class="me-2 bi bi-snow"></i> Air Conditioning</li>
+          <li class="mb-2"><i class="me-2 bi bi-people"></i> 2 Passengers</li>
+          <li class="mb-2"><i class="me-2 bi bi-gear"></i> Auto</li>
+          <li class="mb-2"><i class="me-2 bi bi-door-closed"></i> 2 Doors</li>
+        </ul>
+
+        <!-- Optional dynamic info -->
+        <div *ngIf="carDetails">
+          <p class="mt-4 fs-5"><strong>{{ carDetails?.car }} {{ carDetails?.car_model }}</strong></p>
+            <p class="mt-4 fs-5"> Price:<strong>{{ carDetails?.price }} </strong></p>
+
+          <span class="badge px-4 py-2 fs-6" [ngClass]="{
+                'bg-success': carDetails?.availability,
+                'bg-danger': !carDetails?.availability
+              }">
+            {{ carDetails?.availability ? 'Available' : 'Unavailable' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

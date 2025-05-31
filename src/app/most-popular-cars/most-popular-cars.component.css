@@ -1,0 +1,15 @@
+.card-img-top {
+  width:208px;
+height: 104px;
+top: 26px;
+margin-left: 45px;
+  /* object-fit: cover; */
+}
+
+.card-title {
+  font-weight: 600;
+}
+.badge {
+  font-size: 0.9rem;
+  padding: 0.4em 0.7em;
+}

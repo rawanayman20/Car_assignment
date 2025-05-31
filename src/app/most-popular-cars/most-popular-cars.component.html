@@ -1,0 +1,71 @@
+<div class="container mt-5">
+
+  <div class="text-center mb-3">
+    <button class="btn btn-sm btn-light shadow-sm px-3 py-2 rounded-pill text-primary fw-semibold">
+      POPULAR RENTAL DEALS
+    </button>
+  </div>
+
+    <!-- Section Heading -->
+  <h2 class="text-center fw-semibold mb-5">
+    Most popular cars rental deals
+  </h2>
+
+  <!-- Car Grid -->
+   <div class="row g-4">
+    <div class="col-lg-3 col-md-6" *ngFor="let car of paginatedCars">
+      <div class="card h-100 shadow-sm rounded-4">
+        <img src="assets/image 12.png" class="card-img-top rounded-top-4" alt="Car Image" />
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold">{{ car.car }} {{ car.car_model }}</h5>
+
+          <!-- Rating and reviews -->
+          <p class="mb-2">
+            <i class="bi bi-star-fill text-warning"></i>
+            4.5 <span class="text-muted">(2,356 reviews)</span>
+          </p>
+
+          <!-- Features -->
+          <div class="d-flex justify-content-center flex-wrap mb-3 small text-muted">
+            <div class="me-3"><i class="bi bi-person-fill"></i> 4 Passengers</div>
+            <div class="me-3"><i class="bi bi-gear-fill"></i> Auto</div>
+            <div class="me-3"><i class="bi bi-snow"></i> Air Conditioning</div>
+            <div><i class="bi bi-door-open-fill"></i> 4 Doors</div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <span class="fw-bold fs-5">{{ car.price }}</span><span class="text-muted"> /day</span>
+          </div>
+
+          <!-- Rent Now button -->
+          <a [routerLink]="['/car', car.id]" class="btn btn-primary w-100">
+            Rent Now <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Pagination -->
+  <nav *ngIf="totalPages > 1" class="mt-4 d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="goToPage(currentPage - 1)">
+          <i class="bi bi-chevron-left"></i> Previous
+        </button>
+      </li>
+
+      <li class="page-item disabled">
+        <span class="page-link">Page {{ currentPage }} of {{ totalPages }}</span>
+      </li>
+
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="goToPage(currentPage + 1)">
+          Next <i class="bi bi-chevron-right"></i>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>

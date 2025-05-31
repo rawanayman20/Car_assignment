@@ -1,0 +1,77 @@
+<div class="container mt-5">
+
+  <!-- Search Bar -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+      <div class="search-bar d-flex align-items-center shadow-sm p-2 px-4 bg-white rounded-4">
+        <i class="bi bi-geo-alt text-muted me-2"></i>
+        <input type="text" class="form-control border-0 shadow-none" placeholder="Search By Name"
+               [(ngModel)]="searchTerm" (input)="onSearchChange()">
+        <button class="btn btn-primary ms-2" style="width: 100px; background-color: #1572D3;" (click)="onSearchChange()">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular Rental Deals Tag -->
+  <div class="text-center mb-3">
+    <button class="btn btn-sm btn-light shadow-sm px-3 py-2 rounded-pill text-primary fw-semibold">
+      POPULAR RENTAL DEALS
+    </button>
+  </div>
+
+  <!-- Section Heading -->
+  <h2 class="text-center fw-semibold mb-5">
+    Most popular cars rental deals
+  </h2>
+
+  <!-- Cars Grid -->
+  <div class="row g-4">
+    <div class="col-lg-3 col-md-6" *ngFor="let car of visibleCars">
+      <div class="card h-100 shadow-sm rounded-4">
+        <img src="assets/image 12.png" class="card-img-top rounded-top-4" alt="Car Image" />
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold">{{ car.car }} {{ car.car_model }}</h5>
+
+          <!-- Rating and reviews -->
+          <p class="mb-2">
+            <i class="bi bi-star-fill text-warning"></i>
+            4.5 <span class="text-muted">(2,356 reviews)</span>
+          </p>
+
+          <!-- Features -->
+          <div class="d-flex justify-content-center flex-wrap mb-3 small text-muted">
+            <div class="me-3"><i class="bi bi-person-fill"></i> 4 Passengers</div>
+            <div class="me-3"><i class="bi bi-gear-fill"></i> Auto</div>
+            <div class="me-3"><i class="bi bi-snow"></i> Air Conditioning</div>
+            <div><i class="bi bi-door-open-fill"></i> 4 Doors</div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <span class="fw-bold fs-5">{{ car.price }}</span><span class="text-muted"> /day</span>
+          </div>
+
+          <!-- Rent Now button -->
+          <a [routerLink]="['/car', car.id]" class="btn btn-primary w-100">
+            Rent Now <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Show More Button -->
+  <div class="row mt-4">
+    <div class="col text-center" *ngIf="visibleCars.length < filteredCars.length">
+      <button 
+        class="btn btn-outline-secondary d-inline-flex align-items-center shadow-sm px-4 py-2 mt-5 rounded-pill"
+        (click)="showMore()">
+        Show all vehicles
+        <i class="bi bi-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </div>
+
+</div>
